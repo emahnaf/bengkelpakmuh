@@ -9,6 +9,7 @@ class Jasabengkel {
 
     static belongsTo = Transaksi
     static hasMany = [transaksis: Transaksi]
-    static constraints = {
-    }
+    static constraints = {}
+
+
 }

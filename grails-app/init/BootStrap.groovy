@@ -8,7 +8,6 @@ class BootStrap {
 //                .addToCategories(new ProductCategory(name: "Mirrorless"))
 //                .save()
 //
-
     }
     def destroy = {
     }
