@@ -1,5 +1,0 @@
-package bengkelpakmuh
-
-class pelanggan{
-
-}
