@@ -1,6 +1,6 @@
 package bengkelpakmuh
 
-class Jasabengkel {
+class JasaBengkel {
 
 //    String idjasa
     String namajasa

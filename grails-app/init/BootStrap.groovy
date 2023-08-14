@@ -1,4 +1,4 @@
-import bengkelpakmuh.Jasabengkel
+import bengkelpakmuh.JasaBengkel
 import bengkelpakmuh.Pelanggan
 import bengkelpakmuh.Transaksi
 import bengkelpakmuh.Worker
@@ -29,15 +29,15 @@ class BootStrap {
         Pelanggan tambahpelanggan5 = new Pelanggan(namapelanggan: "bapakjuli", platmobil: "DD127AA", nomorwa: "082280555127")
         tambahpelanggan5.save()
 
-        Jasabengkel tambahjasa1= new Jasabengkel(namajasa: "ganti oli biasa", hargajasa: 30000, durasikerja: 30)
+        JasaBengkel tambahjasa1= new JasaBengkel(namajasa: "ganti oli biasa", hargajasa: 30000, durasikerja: 30)
         tambahjasa1.save()
-        Jasabengkel tambahjasa2= new Jasabengkel(namajasa: "service ringan", hargajasa: 30000, durasikerja: 60)
+        JasaBengkel tambahjasa2= new JasaBengkel(namajasa: "service ringan", hargajasa: 30000, durasikerja: 60)
         tambahjasa2.save()
-        Jasabengkel tambahjasa3= new Jasabengkel(namajasa: "ganti oli", hargajasa: 40000, durasikerja: 15)
+        JasaBengkel tambahjasa3= new JasaBengkel(namajasa: "ganti oli", hargajasa: 40000, durasikerja: 15)
         tambahjasa3.save()
-        Jasabengkel tambahjasa4= new Jasabengkel(namajasa: "ganti velg", hargajasa: 35000, durasikerja: 30)
+        JasaBengkel tambahjasa4= new JasaBengkel(namajasa: "ganti velg", hargajasa: 35000, durasikerja: 30)
         tambahjasa4.save()
-        Jasabengkel tambahjasa5= new Jasabengkel(namajasa: "ganti lampu", hargajasa: 15000, durasikerja: 20)
+        JasaBengkel tambahjasa5= new JasaBengkel(namajasa: "ganti lampu", hargajasa: 15000, durasikerja: 20)
         tambahjasa5.save()
 
         Transaksi tambahtransaksi1=new Transaksi(nomortransaksi: "123", totaldurasi: 60, totalharga: 100000, pelanggan: tambahpelanggan1)

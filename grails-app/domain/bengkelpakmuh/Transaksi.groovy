@@ -10,7 +10,6 @@ class Transaksi {
     Pelanggan pelanggan
 
     static belongsTo = [pelanggan: Pelanggan]
-    static hasMany = [workers: Worker, services: Jasabengkel]
-    static constraints = {
-    }
+    static hasMany = [workers: Worker, services: JasaBengkel]
+    static constraints = {}
 }

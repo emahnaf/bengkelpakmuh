@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: anaff
-  Date: 8/11/2023
-  Time: 10:40 AM
+  User: muhammadahnafyusuf
+  Date: 8/14/23
+  Time: 3:58 PM
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -12,6 +12,6 @@
 </head>
 
 <body>
-
+<h1 id="listtt">${pelanggan.namapelanggan}</h1>
 </body>
 </html>
