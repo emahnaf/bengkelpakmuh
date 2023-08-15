@@ -3,8 +3,8 @@ package bengkelpakmuh
 class PelangganController {
 
     def index() {
-        def pelan = Pelanggan.list()
-        [pelanggan: pelan]
+        def pelanggan = Pelanggan.list()
+        [pelanggan: pelanggan]
     }
 
     def create() {
@@ -19,4 +19,14 @@ class PelangganController {
         [pelanggan: Pelanggan]
     }
 
+    def save() {
+        // Logika untuk menyimpan data setelah form dikirimkan
+        def newPelanggan   = new Pelanggan(params)
+        if (newPelanggan.save()) {
+            flash.message = "pelanggan berhasil ditambah!"
+            redirect(action: "index")
+        } else {
+            render(view: "create", model: [item: newPelanggan])
+        }
+    }
 }

@@ -12,4 +12,6 @@ class JasaBengkel {
 
     static constraints = {
     }
+
+
 }
