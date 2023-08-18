@@ -10,6 +10,10 @@ class JasaBengkel {
     static belongsTo = Transaksi
     static hasMany = [transaksis: Transaksi]
 
+    static mapping = {
+        transaksis cascade: "all-delete-orphan"
+    }
+
     static constraints = {
     }
 

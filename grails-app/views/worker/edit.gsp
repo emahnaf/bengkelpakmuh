@@ -36,5 +36,15 @@
                 </fieldset>
             </g:form>
         </div>
+    <h1>edit Worker</h1>
+
+    <g:form controller="Worker" action="update">
+        <label for="namaWorker">Item Name:</label>
+        <g:hiddenField name="editId" value="${pekerja.id}"/>
+        <g:textField name="namaWorker" required="true" value="${pekerja.namaWorker}"/>
+        <br />
+        <g:submitButton name="update" value="updateeeee" />
+    </g:form>
     </body>
+
 </html>

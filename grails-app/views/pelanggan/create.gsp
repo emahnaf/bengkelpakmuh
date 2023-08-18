@@ -45,7 +45,7 @@
                 <label for="nomorwa">nomor wa:     </label>
                 <g:textField name="nomorwa" required="true" />
                 <br />
-                <g:submitButton name="create" value="Create" />
+                <g:submitButton name="create" value="create" />
             </g:form>
         </div>
     </body>

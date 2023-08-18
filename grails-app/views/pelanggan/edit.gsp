@@ -36,5 +36,20 @@
                 </fieldset>
             </g:form>
         </div>
+    <h1>edit Pelanggan</h1>
+
+    <g:form controller="Pelanggan" action="update">
+        <g:hiddenField name="editId" value="${pelanggan.id}"/>
+        <label for="namapelanggan">nama pelanggan:</label>
+        <g:textField name="namapelanggan" required="true" value="${pelanggan.namapelanggan}"/>
+        <br />
+        <label for="platmobil">plat mobil:    </label>
+        <g:textField name="platmobil" required="true" value="${pelanggan.platmobil}"/>
+        <br />
+        <label for="nomorwa">nomor wa:     </label>
+        <g:textField name="nomorwa" required="true" value="${pelanggan.nomorwa}"/>
+        <br />
+        <g:submitButton name="update" value="updateee" />
+    </g:form>
     </body>
 </html>
