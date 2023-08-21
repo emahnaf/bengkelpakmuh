@@ -15,13 +15,27 @@ class TransaksiController {
     }
 
     def save() {
+        def transaksi = new Transaksi(params as Map)
 
-        def selectedJasaItems = params.findAll { key, value -> key.startsWith("jasa[") && value.selected == "true" }
-        def totalDurasi = selectedJasaItems.collect { it.value.durasiKerja.toFloat() }.sum()
+        def jasaTerpilih =
 
-        // ... other processing and saving Transaksi data
+        jasaTerpilih.each { id ->
+            def jasaInstance = JasaBengkel.get(id)
+            transaksi.addToJasabengkels(jasaInstance)
+        }
 
-        redirect action: "create"
+        for (id in jasaTerpilih) {
+
+        }
+
+        if (transaksi) {
+            flash.message = "gacor kanggggggg ${params}, ini transaksi ${transaksi}"
+            transaksi.save()
+            redirect(action: "index")
+        }else {
+            flash.message = "gjoaoncook ${params}, ini transaksi ${transaksi}"
+            render(view: "create", model: [transaksi: transaksi])
+        }
     }
 
     def edit(Long id) {
@@ -38,7 +52,7 @@ class TransaksiController {
     def update(){
         def transaksi = Transaksi.get(params.editId)
 
-        transaksi.nomortransaksi = params.nomortransaksi
+//        transaksi.nomortransaksi = params.nomortransaksi
         transaksi.totaldurasi=params.totaldurasi
         transaksi.totalharga=params.totalharga
         transaksi.save()

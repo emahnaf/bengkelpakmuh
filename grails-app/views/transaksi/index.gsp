@@ -28,7 +28,7 @@
         <table id="tableatransaksi">
             <tr>
                 <th>no</th>
-                <th>nomor transaksi</th>
+%{--                <th>nomor transaksi</th>--}%
                 <th>nama pelanggan</th>
                 <th>nomor plat</th>
                 <th>total durasi</th>
@@ -40,11 +40,11 @@
                 <tr>
                     <td>${count}</td>
                     <g:set var="count" value="${count.toInteger() + 1}" />
-                    <td>${entry.nomortransaksi}</td>
+%{--                    <td>${entry.id + 20230000}</td>--}%
                     <td>${entry.pelanggan.namapelanggan}</td>
                     <td>${entry.pelanggan.platmobil}</td>
-                    <td>${entry.totaldurasi}</td>
-                    <td>${entry.totalharga}</td>
+                    <td>${entry.totaldurasi} menit</td>
+                    <td>Rp. ${entry.totalharga}</td>
                     <td>
                         <g:link >
                             <g:link class="delete" action="delete" params="[id:entry.id]">

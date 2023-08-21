@@ -36,6 +36,25 @@
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
                 </fieldset>
             </g:form>
+
+            <h1>ngeditt Jasabengkel</h1>
+
+            <g:form controller="JasaBengkel" action="update">
+                <g:hiddenField name="editId" value="${jasabengkel.id}"/>
+                <label for="namajasa">nama jasa</label>
+                <g:textField name="namajasa" required="true" value="${jasabengkel.namajasa}"/>
+                <br />
+                <label for="hargaJasa">hargajasa   </label>
+                <g:textField name="hargaJasa" required="true" value="${jasabengkel.hargaJasa}"/>
+                <br />
+
+                <label for="durasiKerja">durasi kerja     </label>
+                <g:textField name="durasiKerja" required="true" value="${jasabengkel.durasiKerja}"/>
+                <br />
+            %{--                <g:select name="barangId" from="${barangList}" optionKey="id" optionValue="nama" required="true" />--}%
+            %{--                <br />--}%
+                <g:submitButton name="update" value="update" />
+            </g:form>
         </div>
     </body>
 </html>

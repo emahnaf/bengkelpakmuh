@@ -12,7 +12,7 @@ class JasaBengkelController {
 
     def edit(Long id) {
         def jasabengkel = JasaBengkel.get(id)
-        [pelanggan: jasabengkel]
+        [jasabengkel : jasabengkel]
     }
     def save() {
         // Logika untuk menyimpan data setelah form dikirimkan
@@ -24,19 +24,8 @@ class JasaBengkelController {
             render(view: "create", model: [item: newjasaBengkel])
         }
     }
-//    def delete() {
-//        def delete = JasaBengkel.get(params.id)
-//        delete.delete()
-//        redirect(action: "index")
-//    }
-    def delete() {
-//        def jasaBengkel = JasaBengkel.get(params.id)
-//
-//        // Clear associations with Transaksi
-//
-//        // Delete the JasaBengkel instance
-//        jasaBengkel.delete()
 
+    def delete() {
         def jasaBengkel = JasaBengkel.get(params.id)
         jasaBengkel
                 .transaksis
@@ -49,9 +38,9 @@ class JasaBengkelController {
     def update(){
         def jasabengkel = JasaBengkel.get(params.editId)
 
-        jasabengkel.namajasa = params.namajasa
-        jasabengkel.durasiKerja=params.durasiKerja
-        jasabengkel.hargaJasa=params.hargaJasa
+        jasabengkel.namajasa = params.namajasa as String
+        jasabengkel.durasiKerja=params.durasiKerja as Integer
+        jasabengkel.hargaJasa=params.hargaJasa as Integer
         jasabengkel.save()
 
         redirect(action: "index")
