@@ -372,7 +372,9 @@ table {
     border-top: 1px solid #DFDFDF;
     border-collapse: collapse;
     width: 100%;
-    margin-bottom: 1em;
+    margin-bottom: 10em;
+    /*background-color: rgb(23,30,91);*/
+    /*color: red; /INI ADALAH WARNA TULISAN*/
 }
 
 tr {

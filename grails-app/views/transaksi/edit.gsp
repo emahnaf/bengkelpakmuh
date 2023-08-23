@@ -36,5 +36,69 @@
                 </fieldset>
             </g:form>
         </div>
+    <g:form controller="Transaksi" action="update">
+        <h1>halaman update</h1>
+        <h1>pilih pelanggan</h1>
+%{--        <h1>${transaksi.pelanggan.id}</h1>--}%
+        <g:select name="pelanggan" from="${pelangganList}" optionKey="id" optionValue="namapelanggan" required="true" value="${transaksi.pelanggan.id}" />
+        <h1>pilihhh apa mau na bikin ke ini bengkel</h1>
+
+    %{--        <g:select name="jasabengkels" from="${jasabengkelList}" optionKey="id" multiple="yes" optionValue="namajasa" />--}%
+
+        <g:each in="${jasabengkelList}" var="jasa">
+            <div>
+                <label>${jasa.namajasa}</label>
+                %{--                <g:hiddenField name="jasa[${jasa.id}].id" value="${jasa.id}" />--}%
+                %{--                <g:hiddenField name="jasa[${jasa.id}].durasiKerja" value="${jasa.durasiKerja}" />--}%
+                <g:checkBox name="jasabengkels"
+                            data-durasiKerja="${jasa.durasiKerja}"
+                            data-totalHarga="${jasa.hargaJasa}"
+                            value="${jasa.id}"
+                            onclick="updateTotal()"
+                            checked="${transaksi.jasabengkels.id.contains(jasa.id)}" />
+            </div>
+        </g:each>
+
+        <p>${transaksi.jasabengkels}</p>
+
+        <g:hiddenField name="totalharga" value="aselole"/>
+        <g:hiddenField name="totaldurasi" value="aselole"/>
+        <div>
+            <label>Total Durasi:</label>
+            <span id="totalDurasi">0.00 jam</span>
+            <label>Total Harga:</label>
+            <span id="totalHarga">Rp. 0.00 </span>
+        </div>
+        <g:hiddenField name="editId"
+            value="${transaksi.id}"/>
+
+        <g:submitButton name="update" value="gasssss"/>
+    </g:form>
+    <script>
+        function updateTotal() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let totalDurasi = 0;
+            let totalHarga = 0;
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    var durasi = checkbox.getAttribute('data-durasiKerja');
+                    var harga = checkbox.getAttribute('data-totalHarga');
+
+                    totalDurasi += parseFloat(durasi);
+                    totalHarga += parseFloat(harga);
+                }
+            });
+
+            document.getElementById('totalDurasi').textContent = totalDurasi.toFixed(2) + ' jam';
+            document.getElementById('totalHarga').textContent = 'Rp.'+ totalHarga.toFixed(2) ;
+            const inputDurasi = document.querySelectorAll('input[name=totaldurasi]');
+            const inputHarga = document.querySelectorAll('input[name=totalharga]');
+            inputDurasi.forEach(x => x.value = totalDurasi);
+            inputHarga.forEach(x => x.value = totalHarga);
+        }
+    </script>
+
+
     </body>
 </html>

@@ -17,16 +17,14 @@ class TransaksiController {
     def save() {
         def transaksi = new Transaksi(params as Map)
 
-        def jasaTerpilih =
+//      //jasa[1]
+//      //jasa[3]
+//      //jasa[5]
+        //
+        //if (jasa[]){
+        //
+        // }
 
-        jasaTerpilih.each { id ->
-            def jasaInstance = JasaBengkel.get(id)
-            transaksi.addToJasabengkels(jasaInstance)
-        }
-
-        for (id in jasaTerpilih) {
-
-        }
 
         if (transaksi) {
             flash.message = "gacor kanggggggg ${params}, ini transaksi ${transaksi}"
@@ -40,7 +38,10 @@ class TransaksiController {
 
     def edit(Long id) {
         def transaksi = Transaksi.get(id)
-        [pelanggan: transaksi]
+        def jasabengkelList = JasaBengkel.list()
+        def pelangganList = Pelanggan.list()
+
+        [transaksi: transaksi, jasabengkelList: jasabengkelList, pelangganList: pelangganList]
     }
 
     def delete() {
@@ -53,8 +54,8 @@ class TransaksiController {
         def transaksi = Transaksi.get(params.editId)
 
 //        transaksi.nomortransaksi = params.nomortransaksi
-        transaksi.totaldurasi=params.totaldurasi
-        transaksi.totalharga=params.totalharga
+        transaksi.totaldurasi=params.totaldurasi to Integer
+        transaksi.totalharga=params.totalharga to Integer
         transaksi.save()
 
         redirect(action: "index")

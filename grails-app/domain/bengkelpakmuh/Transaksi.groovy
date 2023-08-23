@@ -9,6 +9,7 @@ class Transaksi {
     int totaldurasi
     Pelanggan pelanggan
 
+
     static belongsTo = [pelanggan: Pelanggan]
     static hasMany = [workers: Worker, jasabengkels: JasaBengkel]
 
