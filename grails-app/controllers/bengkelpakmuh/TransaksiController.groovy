@@ -1,5 +1,7 @@
 package bengkelpakmuh
 
+import javax.swing.Spring
+
 class TransaksiController {
 
     def index() {
@@ -10,8 +12,9 @@ class TransaksiController {
     def create() {
         def jasabengkelList = JasaBengkel.list()
         def pelangganList = Pelanggan.list()
+        def workerList = Worker.list()
 
-        [jasabengkelList: jasabengkelList, pelangganList: pelangganList]
+        [jasabengkelList: jasabengkelList, pelangganList: pelangganList, workerList: workerList]
     }
 
     def save() {
@@ -40,8 +43,9 @@ class TransaksiController {
         def transaksi = Transaksi.get(id)
         def jasabengkelList = JasaBengkel.list()
         def pelangganList = Pelanggan.list()
+        def workerList = Worker.list()
 
-        [transaksi: transaksi, jasabengkelList: jasabengkelList, pelangganList: pelangganList]
+        [transaksi: transaksi, jasabengkelList: jasabengkelList, pelangganList: pelangganList, workerList: workerList]
     }
 
     def delete() {
@@ -52,11 +56,25 @@ class TransaksiController {
 
     def update(){
         def transaksi = Transaksi.get(params.editId)
+//      Long pelanggan, int totalharga, int totaldurasi, Long editId, String[] jasabengkels
+//      transaksi.nomortransaksi = params.nomortransaksi
+        def pelan = Pelanggan.get(params.pelanggan)
+        def wor = Worker.get(params.workers)
+        transaksi.jasabengkels.clear()
+        transaksi.workers.clear()
 
-//        transaksi.nomortransaksi = params.nomortransaksi
-        transaksi.totaldurasi=params.totaldurasi to Integer
-        transaksi.totalharga=params.totalharga to Integer
-        transaksi.save()
+
+        for(x in params.jasabengkels) {
+            def jas = JasaBengkel.get(x)
+            if(jas) {
+                transaksi.addToJasabengkels(jas)
+                transaksi.save()
+            }
+        }
+            transaksi.addToWorkers(wor)
+            transaksi.totaldurasi = params.totaldurasi as Integer
+            transaksi.totalharga = params.totalharga as Integer
+            transaksi.pelanggan = pelan
 
         redirect(action: "index")
     }

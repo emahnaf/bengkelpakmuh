@@ -40,7 +40,9 @@
             <label>Total Harga:</label>
             <span id="totalHarga">Rp. 0.00 </span>
         </div>
-
+        <h1>pilih worker</h1>
+        <g:select name="workers" from="${workerList}" optionKey="id" optionValue="namaWorker" required="true" />
+        <br>
         <g:submitButton name="create" value="gasssss"/>
     </g:form>
     <script>

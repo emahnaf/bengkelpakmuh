@@ -28,8 +28,8 @@
     <tr>
         <th>no</th>
         <th>nama jasa</th>
-        <th>durasi jasa</th>
-        <th>harga jasa</th>
+        <th>harga jasaaaaa</th>
+        <th>duraziiii jaza</th>
         <th>AKSI!!</th>
     </tr>
     <g:set var="count" value="1"/>

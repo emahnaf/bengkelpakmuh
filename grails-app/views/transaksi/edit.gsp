@@ -71,6 +71,9 @@
         </div>
         <g:hiddenField name="editId"
             value="${transaksi.id}"/>
+        <h1>pilih worker</h1>
+        <g:select name="workers" from="${workerList}" optionKey="id" optionValue="namaWorker" required="true" value="${transaksi.pelanggan.id}" />
+        <h1>pilihhh apa mau na bikin ke ini bengkel</h1>
 
         <g:submitButton name="update" value="gasssss"/>
     </g:form>
